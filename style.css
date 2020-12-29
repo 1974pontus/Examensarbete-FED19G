@@ -5,11 +5,6 @@
           box-sizing: border-box;
 }
 
-html {
-  overflow-y: scroll;
-  /* force scrollbar to eliminate horizontal jump */
-}
-
 body {
   display: -webkit-box;
   display: -ms-flexbox;

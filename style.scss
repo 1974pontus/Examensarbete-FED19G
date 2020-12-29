@@ -1,4 +1,4 @@
-$primarybtn: rgb(94, 29, 72);
+
 @mixin flexer {
   display: flex;
   justify-content: center;
@@ -10,15 +10,9 @@ $primarybtn: rgb(94, 29, 72);
   padding: 0;
   box-sizing: border-box;
 }
-html {
-  overflow-y: scroll; /* force scrollbar to eliminate horizontal jump */
-}
 
 body {
   @include flexer;
-  // display: flex;
-  // justify-content: center;
-  // align-items: center;
   font-family: Helvetica, sans-serif;
   font-size: 16px;
   padding-top: 1rem;
@@ -26,7 +20,6 @@ body {
 
 .content {
   display: flex;
-  // justify-content: center;
   padding-top: 2rem;
   align-items: center;
   flex-direction: column;
@@ -34,7 +27,6 @@ body {
   background-image: url(./eq-bg.png);
   background-repeat: no-repeat;
   background-position: center;
-  //background-size: cover;
   width: 500px;
 }
 
@@ -173,7 +165,6 @@ audio {
   width: 250px;
   margin: 1rem;
   height: 30px;
-  // border: 1px solid #2b2b2b;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 .btnRow {
@@ -195,9 +186,7 @@ button {
   font-size: 12px;
   font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
 }
-// .active {
-//   background: #ff0000;
-// }
+
 .carousel {
   @include flexer;
   margin-top: 6rem;
@@ -211,4 +200,3 @@ button {
 .vinyl {
   display: none;
 }
-
