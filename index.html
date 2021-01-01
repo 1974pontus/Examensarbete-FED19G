@@ -3,13 +3,47 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Worst case mix-EQ</title>
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA==" crossorigin="anonymous" />
     <link rel="stylesheet" href="style.css" />
     <script defer src="index.js"></script>
   </head>
   <body>
     <div class="content">
       <h1>Worst case mix-EQ</h1>
+      <div id="meters">
+        <div id="meterRight" class="meter">
+          <span class="indicator minus">-</span>
+          <span class="indicator plus">+</span>
+          <div class="needle"></div>
+
+          <div class="label">VU</div>
+          <div class="meterLine">
+            <span class="base"></span>
+            <div class="danger">
+              <span class="base"></span>
+            </div>
+          </div>
+          <div class="shadow"></div>
+          <div class="needleBase"><span></span></div>
+        </div>
+
+        <div id="meterLeft" class="meter">
+          <span class="indicator minus">-</span>
+          <span class="indicator plus">+</span>
+          <div class="needle"></div>
+
+          <div class="label">VU</div>
+          <div class="meterLine">
+            <span class="base"></span>
+            <div class="danger">
+              <span class="base"></span>
+            </div>
+          </div>
+          <div class="shadow"></div>
+          <div class="needleBase"><span></span></div>
+        </div>
+      </div>
       <h1 style="font-size: 18px; text-align: center">
         Choose enviroment to <br />
         test your mix:
@@ -17,9 +51,12 @@
       <div>
         <input id="audio_file" type="file" accept="audio/*" />
       </div>
-
+      <div class="btnRow">
+        <button onclick="document.getElementById('audio_player').play()"><i class="fas fa-play"></i></button>
+        <button onclick="document.getElementById('audio_player').pause()"><i class="fas fa-pause"></i></button>
+      </div>
       <div>
-        <audio controls id="audio_player"></audio>
+        <audio id="audio_player"></audio>
       </div>
 
       <div class="btnRow">
@@ -32,10 +69,11 @@
         </button>
         <button class="lastBtn" data-active="false">Vinyl</button>
       </div>
-      
+      <div class="carousel">
+        <img class="car" src="./img/car_sterero.png" alt="" />
+        <img class="mobile" src="./img/phone.png" alt="" />
+        <img class="vinyl" src="./img/vinyl.png" alt="" />
+      </div>
     </div>
-    
-
-
   </body>
 </html>
