@@ -222,15 +222,15 @@ button:focus {
   padding-top: 10rem;
 }
 
-.car {
+.carImg {
   display: none;
 }
 
-.mobile {
+.mobileImg {
   display: none;
 }
 
-.vinyl {
+.speakerImg {
   display: none;
 }
 /*# sourceMappingURL=style.css.map */
