@@ -26,13 +26,13 @@ audio_file.onchange = function () {
     carBtn.addEventListener('click', () => {
         const active = carBtn.getAttribute('data-active');
         if (active === 'false') {
+            carImg.style.display = 'block';
             carBtn.setAttribute('data-active', 'true')
             mobileBtn.setAttribute('data-active', 'false')
             monoBtn.setAttribute('data-active', 'false')
-            body.style.backgroundColor = '#ff0000';
         } else if (active === 'true') {
             carBtn.setAttribute('data-active', 'false')
-            body.style.backgroundColor = 'white';
+            carImg.style.display = 'none';
         }
     });
     
@@ -40,13 +40,13 @@ audio_file.onchange = function () {
     mobileBtn.addEventListener('click', () => {
         const active = mobileBtn.getAttribute('data-active');
         if (active === 'false') {
+            mobileImg.style.display = 'block';
             mobileBtn.setAttribute('data-active', 'true')
             carBtn.setAttribute('data-active', 'false')
             monoBtn.setAttribute('data-active', 'false')
-            body.style.backgroundColor = 'pink';
         } else if (active === 'true') {
+            mobileImg.style.display = 'none';
             mobileBtn.setAttribute('data-active', 'false')
-            body.style.backgroundColor = 'white';
         }
     });
     
@@ -54,14 +54,14 @@ audio_file.onchange = function () {
     monoBtn.addEventListener('click', () => {
         const active = monoBtn.getAttribute('data-active');
         if (active === 'false') {
+            speakerImg.style.display = 'block';
             monoBtn.setAttribute('data-active', 'true')
             mobileBtn.setAttribute('data-active', 'false')
             carBtn.setAttribute('data-active', 'false')
             console.log('mono')
-            body.style.backgroundColor = 'orange';
         } else if (active === 'true') {
+            speakerImg.style.display = 'none';
             monoBtn.setAttribute('data-active', 'false')
-            body.style.backgroundColor = 'white';
         }
     });
 
