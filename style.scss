@@ -1,8 +1,13 @@
-
 @mixin flexer {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+@mixin animate {
+  animation: fadeIn ease 1s;
+  -webkit-animation: fadeIn ease 1s;
+  -moz-animation: fadeIn ease 1s;
 }
 
 * {
@@ -10,7 +15,6 @@
   padding: 0;
   box-sizing: border-box;
 }
-
 
 body {
   @include flexer;
@@ -28,7 +32,6 @@ body {
   align-items: center;
   flex-direction: column;
   height: 100vh;
-  
 }
 
 h1 {
@@ -161,14 +164,6 @@ input {
   box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 
-// audio {
-//   background-color: rgb(241, 239, 239);
-//   width: 250px;
-//   margin: 1rem;
-//   height: 30px;
-//   // border: 1px solid #2b2b2b;
-//   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-// }
 .btnRow {
   display: flex;
   align-items: center;
@@ -177,7 +172,7 @@ input {
 
 button {
   color: white;
-  margin: .7rem;
+  margin: 0.7rem;
   border-style: none;
   width: 60px;
   height: 60px;
@@ -193,14 +188,49 @@ button:focus {
 }
 .carousel {
   @include flexer;
-  padding-top: 10rem;
+  padding-top: 5rem;
 }
-.carImg {
+#carImg {
   display: none;
+}
+.carAnimation {
+  @include animate;
 }
 .mobileImg {
   display: none;
 }
+.mobileAnimation {
+  @include animate;
+}
 .speakerImg {
   display: none;
+}
+.speakerAnimation {
+  @include animate;
+}
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@-moz-keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }

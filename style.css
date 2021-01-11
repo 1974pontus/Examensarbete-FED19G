@@ -192,7 +192,7 @@ input {
 
 button {
   color: white;
-  margin: .7rem;
+  margin: 0.7rem;
   border-style: none;
   width: 60px;
   height: 60px;
@@ -219,18 +219,54 @@ button:focus {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  padding-top: 10rem;
+  padding-top: 5rem;
 }
 
-.carImg {
+#carImg {
   display: none;
+}
+
+.carAnimation {
+  animation: fadeIn ease 1s;
+  -webkit-animation: fadeIn ease 1s;
+  -moz-animation: fadeIn ease 1s;
 }
 
 .mobileImg {
   display: none;
 }
 
+.mobileAnimation {
+  animation: fadeIn ease 1s;
+  -webkit-animation: fadeIn ease 1s;
+  -moz-animation: fadeIn ease 1s;
+}
+
 .speakerImg {
   display: none;
+}
+
+.speakerAnimation {
+  animation: fadeIn ease 1s;
+  -webkit-animation: fadeIn ease 1s;
+  -moz-animation: fadeIn ease 1s;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }
 /*# sourceMappingURL=style.css.map */
