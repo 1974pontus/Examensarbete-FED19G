@@ -269,4 +269,13 @@ button:focus {
     opacity: 1;
   }
 }
+
+#canvas {
+  position: fixed;
+  left: 0;
+  top: 60%;
+  width: 100%;
+  height: 40%;
+  z-index: -1000;
+}
 /*# sourceMappingURL=style.css.map */
