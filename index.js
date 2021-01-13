@@ -122,6 +122,9 @@ audio_file.onchange = function () {
 
     ////////MONO AURATONE SETUP////////
 
+    const splitter = ctx.createChannelSplitter(2);
+    mediaElement.connect(splitter);
+    
     monoBtn.addEventListener('click', () => {
         const active = monoBtn.getAttribute('data-active');
         if (active === 'false') {
@@ -140,6 +143,134 @@ audio_file.onchange = function () {
         }
     });
 
+
+
+    ////////VU METER////////
+
+    /*Check volume*/
+    const checkVolume = function (analyser, meter) {
+
+        let frequencyData = new Uint8Array(1);
+        analyser.getByteFrequencyData(frequencyData);
+        let volume = frequencyData[0];
+        let rotation = (parseInt(volume * .54)) + 20;
+        let needles = document.getElementById(meter).getElementsByClassName('needle');
+        let needle = needles[0];
+        needle.style.transform = "rotate(" + rotation + "deg)";
+
+    }
+
+    /* Create two analyzers */
+    let analyserLeft = ctx.createAnalyser();
+    let analyserRight = ctx.createAnalyser();
+
+
+    /* Connect analyzers */
+    splitter.connect(analyserLeft, 1);
+    splitter.connect(analyserRight, 0)
+
+
+    setInterval(function () {
+        checkVolume(analyserLeft, "meterLeft");
+        checkVolume(analyserRight, "meterRight")
+    }, 50);
+
+
+
+    ////////VISUAL ANALYSER////////
+
+    //Setup Canvas
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+    const analCtx = canvas.getContext("2d");
+
+    //Create Analyser
+    let analyser = ctx.createAnalyser();
+    mediaElement.connect(analyser);
+
+    //Analyser fftSize
+    analyser.fftSize = 8192;
+    /* (FFT) is an algorithm that samples a signal over a period of time
+    and divides it into its frequency components (single sinusoidal oscillations).
+    It separates the mixed signals and shows what frequency is a violent vibration.
+    (FFTSize) represents the window size in samples that is used when performing a FFT
+    Lower the size, the less bars (but wider in size)*/
+
+    const bufferLength = analyser.frequencyBinCount; // (read-only property)
+    // Unsigned integer, half of fftSize (so in this case, bufferLength = 8192)
+    // Equates to number of data values you have to play with for the visualization
+
+    // The FFT size defines the number of bins used for dividing the window into equal strips, or bins.
+    // Hence, a bin is a spectrum sample, and defines the frequency resolution of the window.
+
+    const dataArray = new Uint8Array(bufferLength); // Converts to 8-bit unsigned integer array
+    // At this point dataArray is an array with length of bufferLength but no values
+    console.log('DATA-ARRAY: ', dataArray) // Check out this array of frequency values!
+
+    const WIDTH = canvas.width;
+    const HEIGHT = canvas.height;
+    console.log('WIDTH: ', WIDTH, 'HEIGHT: ', HEIGHT)
+
+    const barWidth = (WIDTH / bufferLength) * 50;
+    console.log('BARWIDTH: ', barWidth)
+
+    console.log('TOTAL WIDTH: ', (117 * 10) + (118 * barWidth)) // (total space between bars)+(total width of all bars)
+
+    let barHeight;
+    let x = 0;
+
+    function renderFrame() {
+        requestAnimationFrame(renderFrame); // Takes callback function to invoke before rendering
+
+        x = 0;
+
+        analyser.getByteFrequencyData(dataArray); // Copies the frequency data into dataArray
+        // Results in a normalized array of values between 0 and 255
+        // Before this step, dataArray's values are all zeros (but with length of 8192)
+
+        analCtx.fillStyle = "white"; // Clears canvas before rendering bars 
+        analCtx.fillRect(1, 1, WIDTH, HEIGHT); // Fade effect, set opacity to 1 for sharper rendering of bars
+
+        let r, g, b;
+        let bars = 118 // Set total number of bars you want per frame
+
+        for (let i = 0; i < bars; i++) {
+            barHeight = (dataArray[i] * 2.5);
+
+            if (dataArray[i] > 210) {
+                r = 250
+                g = 163
+                b = 7
+            } else if (dataArray[i] > 180) {
+                r = 220
+                g = 47
+                b = 2
+            } else if (dataArray[i] > 170) {
+                r = 232
+                g = 93
+                b = 4
+            } else if (dataArray[i] > 160) {
+                r = 244
+                g = 140
+                b = 6
+            } else {
+                r = 250
+                g = 163
+                b = 7
+            }
+
+
+
+            analCtx.fillStyle = `rgb(${r},${g},${b})`;
+            analCtx.fillRect(x, (HEIGHT - barHeight), barWidth, barHeight);
+
+
+            x += barWidth + 2 // Gives px space between each bar
+        }
+    }
+
+
+    renderFrame();
 };
 
 
