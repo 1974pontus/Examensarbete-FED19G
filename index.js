@@ -30,7 +30,7 @@ audio_file.onchange = function () {
     ////////CAR STEREO SETUP////////
 
     //Setup and connect impulse response
-    const reverbUrl = "./IR/henkesIr.wav";
+    const reverbUrl = "./IR/IRCar.wav";
     const reverbNode = ctx.createReverbFromUrl(reverbUrl, function () {
         reverbNode.connect(ctx.destination);
     });
@@ -124,7 +124,7 @@ audio_file.onchange = function () {
 
     const splitter = ctx.createChannelSplitter(2);
     mediaElement.connect(splitter);
-    
+
     monoBtn.addEventListener('click', () => {
         const active = monoBtn.getAttribute('data-active');
         if (active === 'false') {
