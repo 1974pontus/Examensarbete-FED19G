@@ -10,6 +10,10 @@
       integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA=="
       crossorigin="anonymous"
     />
+    <link
+      href="http://fonts.cdnfonts.com/css/dymo-font-invers"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="style.css" />
     <script src="http://reverbjs.org/reverb.js"></script>
     <script defer src="index.js"></script>
@@ -68,23 +72,30 @@
       <div>
         <audio id="audio_player"></audio>
       </div>
-
-      <div class="btnRow">
-        <button class="carBtn" data-active="false">
-          Car <br />
-          stereo
-        </button>
-        <button class="mobileBtn" data-active="false">
-          Mobile <br />speaker
-        </button>
-        <button class="monoBtn" data-active="false">Mono</button>
+      <div class="setEq">
+        <div class="btnRow">
+          <button class="carBtn" data-active="false">
+            <!-- Car <br />
+            stereo -->
+            <i class="fas fa-car" style="font-size: 18px"></i>
+          </button>
+          <button class="mobileBtn" data-active="false">
+            <!-- Mobile <br />speaker -->
+            <i class="fas fa-mobile-alt" style="font-size: 18px"></i>
+          </button>
+          <button class="monoBtn" data-active="false">
+            <!-- Mono -->
+            <i class="fas fa-volume-up" style="font-size: 18px"></i>
+          </button>
+        </div>
+        <div class="carousel">
+          <img id="carImg" src="./img/car.svg" alt="" />
+          <img class="mobileImg" src="./img/phone.svg" alt="" />
+          <img class="speakerImg" src="./img/speaker.svg" alt="" />
+          <canvas id="canvas"></canvas>
+        </div>
       </div>
-      <div class="carousel">
-        <img id="carImg" src="./img/car.svg" alt="" />
-        <img class="mobileImg" src="./img/phone.svg" alt="" />
-        <img class="speakerImg" src="./img/speaker.svg" alt="" />
-      </div>
-      <canvas id="canvas"></canvas>
+      <div class="mixer" style="display: none">bajs</div>
     </div>
   </body>
 </html>

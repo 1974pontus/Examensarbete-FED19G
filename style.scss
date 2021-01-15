@@ -18,10 +18,10 @@
 
 body {
   @include flexer;
-  background-image: url(./img/eq-bg.png);
+  background-image: url(./img/longBg2.svg);
   background-repeat: no-repeat;
   background-position: center top;
-  background-size: 400px;
+  // background-size: 400px;
   font-family: Helvetica, sans-serif;
   font-size: 16px;
 }
@@ -39,7 +39,7 @@ h1 {
   font-size: 1.3em;
   font-weight: lighter;
   letter-spacing: 5px;
-  padding: 0.5rem;
+  padding: 1.5rem;
 }
 
 .meter {
@@ -159,23 +159,17 @@ h1 {
 
 input {
   background: #dfc68d;
-  margin: 0.5rem;
+  margin-bottom: 1.5rem;
   font-size: 12px;
   box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
-}
-
-.btnRow {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
 }
 
 button {
   color: white;
   margin: 0.7rem;
   border-style: none;
-  width: 60px;
-  height: 60px;
+  width: 50px;
+  height: 50px;
   background: #be0101;
   border: 5px solid #1d1d1d;
   outline: none;
@@ -186,24 +180,49 @@ button {
 button:focus {
   background-color: #ff0000;
 }
+
+.setEq {
+  @include flexer;
+  flex-direction: column;
+}
+
+.btnRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
 .carousel {
   @include flexer;
-  padding-top: 5rem;
+  margin-top: 2rem;
+  height: 200px;
+  width: 200px;
+  border-radius: 50%;
+  background-color: #1b2529;
+  border: #3e535c 25px solid;
 }
 #carImg {
   display: none;
+  height: 180px;
+  width: 180px;
+  border-radius: 50%;
 }
 .carAnimation {
   @include animate;
 }
 .mobileImg {
   display: none;
+  height: 180px;
+  width: 180px;
+  border-radius: 50%;
 }
 .mobileAnimation {
   @include animate;
 }
 .speakerImg {
   display: none;
+  height: 180px;
+  width: 180px;
+  border-radius: 50%;
 }
 .speakerAnimation {
   @include animate;
@@ -236,10 +255,14 @@ button:focus {
 }
 
 #canvas {
-  position: fixed;
+  // @include flexer;
+  // position: fixed;
   left: 0;
-  top: 57%;
-  width: 100%;
-  height: 43%;
-  z-index: -1000;
+  top: 0%;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  border: solid 25px #3e535c;
+  filter: blur(1px);
+  // z-index: -1000;
 }

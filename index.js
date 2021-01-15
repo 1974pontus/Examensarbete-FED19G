@@ -211,7 +211,7 @@ audio_file.onchange = function () {
     const HEIGHT = canvas.height;
     console.log('WIDTH: ', WIDTH, 'HEIGHT: ', HEIGHT)
 
-    const barWidth = (WIDTH / bufferLength) * 50;
+    const barWidth = (WIDTH / bufferLength) * 60;
     console.log('BARWIDTH: ', barWidth)
 
     console.log('TOTAL WIDTH: ', (117 * 10) + (118 * barWidth)) // (total space between bars)+(total width of all bars)
@@ -228,7 +228,7 @@ audio_file.onchange = function () {
         // Results in a normalized array of values between 0 and 255
         // Before this step, dataArray's values are all zeros (but with length of 8192)
 
-        analCtx.fillStyle = "white"; // Clears canvas before rendering bars 
+        analCtx.fillStyle = "#1b2529"; // Clears canvas before rendering bars 
         analCtx.fillRect(1, 1, WIDTH, HEIGHT); // Fade effect, set opacity to 1 for sharper rendering of bars
 
         let r, g, b;
@@ -261,11 +261,12 @@ audio_file.onchange = function () {
 
 
 
-            analCtx.fillStyle = `rgb(${r},${g},${b})`;
+            // analCtx.fillStyle = `rgb(${r},${g},${b})`;
+            analCtx.fillStyle = "#08FF08";
             analCtx.fillRect(x, (HEIGHT - barHeight), barWidth, barHeight);
 
 
-            x += barWidth + 2 // Gives px space between each bar
+            x += barWidth + 10 // Gives px space between each bar
         }
     }
 
