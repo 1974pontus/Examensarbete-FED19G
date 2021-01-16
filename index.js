@@ -7,6 +7,10 @@ const speakerImg = document.querySelector('.speakerImg');
 const canvas = document.getElementById("canvas");
 
 audio_file.onchange = function () {
+    var myAudio = document.getElementById('audio_player');
+    var play = document.getElementById('play');
+    var pause = document.getElementById('pause');
+
     const AudioContext = window.AudioContext || window.webkitAudioContext;
 
     const audioElement = audio_player;
@@ -21,6 +25,21 @@ audio_file.onchange = function () {
     audio_player.src = file;
 
     mediaElement.connect(ctx.destination);
+
+    // associate functions with the 'onclick' events
+    play.onclick = playAudio;
+    pause.onclick = pauseAudio;
+
+    function playAudio() {
+        myAudio.play();
+        console.log('play')
+    }
+
+    function pauseAudio() {
+        myAudio.pause();
+        console.log('pause')
+
+    }
 
     ctx.resume();
     if (ctx.state === 'suspended') {
