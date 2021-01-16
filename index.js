@@ -16,8 +16,6 @@ audio_file.onchange = function () {
     const audioElement = audio_player;
     const ctx = new AudioContext();
 
-    //connect with reverb.js library
-    reverbjs.extend(ctx);
 
     const mediaElement = ctx.createMediaElementSource(audioElement);
     let files = this.files;
@@ -26,7 +24,10 @@ audio_file.onchange = function () {
 
     mediaElement.connect(ctx.destination);
 
-    // associate functions with the 'onclick' events
+    //connect with reverb.js library
+    //reverbjs.extend(ctx);
+
+
     play.onclick = playAudio;
     pause.onclick = pauseAudio;
 
@@ -49,10 +50,10 @@ audio_file.onchange = function () {
     ////////CAR STEREO SETUP////////
 
     //Setup and connect impulse response
-    const reverbUrl = "./IR/IRCar.wav";
-    const reverbNode = ctx.createReverbFromUrl(reverbUrl, function () {
-        reverbNode.connect(ctx.destination);
-    });
+    // const reverbUrl = "./IR/IRCar.wav";
+    // const reverbNode = ctx.createReverbFromUrl(reverbUrl, function () {
+    //     reverbNode.connect(ctx.destination);
+    // });
 
     //Create filters for car stereo
     //LOWSHELF
@@ -96,7 +97,7 @@ audio_file.onchange = function () {
                 mediaElement.disconnect(ctx.destination);
             } catch (error) { };
             console.log('EQ1 ADDED');
-            mediaElement.connect(reverbNode);
+            //mediaElement.connect(reverbNode);
             mediaElement.connect(highPass).connect(lowPass).connect(lowShelf).connect(mid).connect(highShelf).connect(ctx.destination);
             mobileBtn.style.backgroundColor = '#d30202';
             mobileImg.style.display = 'none';
