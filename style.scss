@@ -18,7 +18,7 @@
 
 body {
   @include flexer;
-  background-image: url(./img/longBg2.svg);
+  background-image: url(./img/bg4.png);
   background-repeat: no-repeat;
   background-position: center top;
   // background-size: 400px;
@@ -200,59 +200,59 @@ button:focus {
   background-color: #1b2529;
   border: #3e535c 25px solid;
 }
-#carImg {
-  display: none;
-  height: 180px;
-  width: 180px;
-  border-radius: 50%;
-}
-.carAnimation {
-  @include animate;
-}
-.mobileImg {
-  display: none;
-  height: 180px;
-  width: 180px;
-  border-radius: 50%;
-}
-.mobileAnimation {
-  @include animate;
-}
-.speakerImg {
-  display: none;
-  height: 180px;
-  width: 180px;
-  border-radius: 50%;
-}
-.speakerAnimation {
-  @include animate;
-}
-@keyframes fadeIn {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
-}
+// #carImg {
+//   display: none;
+//   height: 180px;
+//   width: 180px;
+//   border-radius: 50%;
+// }
+// .carAnimation {
+//   @include animate;
+// }
+// .mobileImg {
+//   display: none;
+//   height: 180px;
+//   width: 180px;
+//   border-radius: 50%;
+// }
+// .mobileAnimation {
+//   @include animate;
+// }
+// .speakerImg {
+//   display: none;
+//   height: 180px;
+//   width: 180px;
+//   border-radius: 50%;
+// }
+// .speakerAnimation {
+//   @include animate;
+// }
+// @keyframes fadeIn {
+//   0% {
+//     opacity: 0;
+//   }
+//   100% {
+//     opacity: 1;
+//   }
+// }
 
-@-moz-keyframes fadeIn {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
-}
+// @-moz-keyframes fadeIn {
+//   0% {
+//     opacity: 0;
+//   }
+//   100% {
+//     opacity: 1;
+//   }
+// }
 
-@-webkit-keyframes fadeIn {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
-}
+// @-webkit-keyframes fadeIn {
+//   0% {
+//     opacity: 0;
+//   }
+//   100% {
+//     opacity: 1;
+//   }
+// }
 
 #canvas {
   // @include flexer;

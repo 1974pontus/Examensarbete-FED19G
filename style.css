@@ -15,7 +15,7 @@ body {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  background-image: url(./img/longBg2.svg);
+  background-image: url(./img/bg4.png);
   background-repeat: no-repeat;
   background-position: center top;
   font-family: Helvetica, sans-serif;
@@ -240,63 +240,6 @@ button:focus {
   border-radius: 50%;
   background-color: #1b2529;
   border: #3e535c 25px solid;
-}
-
-#carImg {
-  display: none;
-  height: 180px;
-  width: 180px;
-  border-radius: 50%;
-}
-
-.carAnimation {
-  animation: fadeIn ease 1s;
-  -webkit-animation: fadeIn ease 1s;
-  -moz-animation: fadeIn ease 1s;
-}
-
-.mobileImg {
-  display: none;
-  height: 180px;
-  width: 180px;
-  border-radius: 50%;
-}
-
-.mobileAnimation {
-  animation: fadeIn ease 1s;
-  -webkit-animation: fadeIn ease 1s;
-  -moz-animation: fadeIn ease 1s;
-}
-
-.speakerImg {
-  display: none;
-  height: 180px;
-  width: 180px;
-  border-radius: 50%;
-}
-
-.speakerAnimation {
-  animation: fadeIn ease 1s;
-  -webkit-animation: fadeIn ease 1s;
-  -moz-animation: fadeIn ease 1s;
-}
-
-@keyframes fadeIn {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
-}
-
-@-webkit-keyframes fadeIn {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
 }
 
 #canvas {

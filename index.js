@@ -50,9 +50,9 @@ audio_file.onchange = function () {
     ////////CAR STEREO SETUP////////
 
     //Setup and connect impulse response
-    const reverbUrl = "./IR/IRCar.wav";
-    const reverbNode = ctx.createReverbFromUrl(reverbUrl, function () {
-        reverbNode.connect(ctx.destination);
+    const reverbUrlCar = "./IR/IRCar.wav";
+    const reverbNodeCar = ctx.createReverbFromUrl(reverbUrlCar, function () {
+        reverbNodeCar.connect(ctx.destination);
     });
 
     //Create filters for car stereo
@@ -85,10 +85,10 @@ audio_file.onchange = function () {
     carBtn.addEventListener('click', () => {
         const active = carBtn.getAttribute('data-active');
         if (active === 'false') {
-            carImg.style.display = 'block';
-            if (carImg.style.display == 'block') {
-                carImg.classList.add('carAnimation')
-            }
+            // carImg.style.display = 'block';
+            // if (carImg.style.display == 'block') {
+            //     carImg.classList.add('carAnimation')
+            // }
             carBtn.setAttribute('data-active', 'true')
             mobileBtn.setAttribute('data-active', 'false')
             monoBtn.setAttribute('data-active', 'false')
@@ -97,22 +97,25 @@ audio_file.onchange = function () {
                 mediaElement.disconnect(ctx.destination);
             } catch (error) { };
             console.log('EQ1 ADDED');
-            mediaElement.connect(reverbNode);
+            mediaElement.connect(reverbNodeCar);
             mediaElement.connect(highPass).connect(lowPass).connect(lowShelf).connect(mid).connect(highShelf).connect(ctx.destination);
             mobileBtn.style.backgroundColor = '#d30202';
-            mobileImg.style.display = 'none';
+            // mobileImg.style.display = 'none';
             try {
                 mediaElement.disconnect(highPass2).disconnect(lowPass2).disconnect(lowShelf2).disconnect(mid2).disconnect(highShelf2).disconnect(ctx.destination);
             } catch (error) { };
-            speakerImg.style.display = 'none';
+            // speakerImg.style.display = 'none';
             monoBtn.style.backgroundColor = '#d30202';
+            try {
+                mono.disconnect(ctx.destination);
+            } catch (error) { };
         } else if (active === 'true') {
             carBtn.setAttribute('data-active', 'false')
-            carImg.style.display = 'none';
+            // carImg.style.display = 'none';
             carBtn.style.backgroundColor = '#d30202';
             mediaElement.connect(ctx.destination);
             try {
-                mediaElement.disconnect(reverbNode);
+                mediaElement.disconnect(reverbNodeCar);
                 mediaElement.disconnect(highPass).disconnect(lowPass).disconnect(lowShelf).disconnect(mid).disconnect(highShelf).disconnect(ctx.destination);
             } catch (error) { };
             console.log('EQ1 REMOVED');
@@ -121,45 +124,128 @@ audio_file.onchange = function () {
 
     ////////MOBILE SETUP////////
 
+    //Create filters for mobile phone speakers
+    //LOWSHELF
+    let lowShelf2 = ctx.createBiquadFilter();
+    lowShelf2.type = 'lowshelf';
+    lowShelf2.frequency.value = 420;
+    lowShelf2.gain.value = 20;
+    //MID
+    let mid2 = ctx.createBiquadFilter();
+    mid2.type = "peaking";
+    mid2.frequency.value = 1200;
+    mid2.Q.value = 3.6;
+    mid2.gain.value = -1.5;
+    //HIGHSHELF
+    let highShelf2 = ctx.createBiquadFilter();
+    highShelf2.type = "highshelf";
+    highShelf2.frequency.value = 2200;
+    highShelf2.gain.value = 3.0;
+    //LOWPASS
+    let lowPass2 = ctx.createBiquadFilter();
+    lowPass2.type = "lowpass";
+    lowPass2.frequency.value = 4250;
+    lowPass2.Q.value = 2.2
+
+    //HIGHPASS
+    let highPass2 = ctx.createBiquadFilter();
+    highPass2.type = "highpass";
+    highPass2.frequency.value = 910;
+    highPass2.Q.value = 2.2
+
     mobileBtn.addEventListener('click', () => {
         const active = mobileBtn.getAttribute('data-active');
         if (active === 'false') {
-            mobileImg.style.display = 'block';
-            if (mobileImg.style.display == 'block') {
-                mobileImg.classList.add('mobileAnimation')
-            }
+            // mobileImg.style.display = 'block';
+            // if (mobileImg.style.display == 'block') {
+            //     mobileImg.classList.add('mobileAnimation')
+            // }
             mobileBtn.setAttribute('data-active', 'true')
             carBtn.setAttribute('data-active', 'false')
             monoBtn.setAttribute('data-active', 'false')
-            carImg.style.display = 'none';
-            speakerImg.style.display = 'none';
+            mobileBtn.style.backgroundColor = '#ff0000';
+            // carImg.style.display = 'none';
+            // speakerImg.style.display = 'none';
+            try {
+                mediaElement.disconnect(ctx.destination);
+            } catch (error) { };
+            mediaElement.connect(highPass2).connect(mid2).connect(lowPass2).connect(ctx.destination);
+            carBtn.style.backgroundColor = '#d30202';
+            try {
+                mediaElement.disconnect(reverbNodeCar);
+                mediaElement.disconnect(highPass).disconnect(lowPass).disconnect(lowShelf).disconnect(mid).disconnect(highShelf).disconnect(ctx.destination);
+            } catch (error) { };
+            monoBtn.style.backgroundColor = '#d30202';
+            console.log('EQ1 REMOVED');
+            console.log('EQ2 ADDED');
+            try {
+                mono.disconnect(ctx.destination);
+            } catch (error) { };
         } else if (active === 'true') {
-            mobileImg.style.display = 'none';
+            // mobileImg.style.display = 'none';
             mobileBtn.setAttribute('data-active', 'false')
+            mobileBtn.style.backgroundColor = '#d30202';
+            console.log('EQ2 Removed');
+            mediaElement.connect(ctx.destination);
+            try {
+                mediaElement.disconnect(highPass2).connect(mid2).disconnect(lowPass2).disconnect(ctx.destination);
+            } catch (error) { };
         }
     });
 
 
     ////////MONO AURATONE SETUP////////
 
+    //Create filters for Mono Auratone
+
     const splitter = ctx.createChannelSplitter(2);
     mediaElement.connect(splitter);
+
+    const gainL = ctx.createGain();
+    const gainR = ctx.createGain();
+
+    const merger = ctx.createChannelMerger(2);
+    const mono = ctx.createGain();
+
+    splitter.connect(mono, 0); // left channel mix into mono-gain
+    splitter.connect(mono, 1); // right channel mix into mono-gain
+    gainL.connect(merger, 0, 0);
+    gainR.connect(merger, 0, 1);
 
     monoBtn.addEventListener('click', () => {
         const active = monoBtn.getAttribute('data-active');
         if (active === 'false') {
-            speakerImg.style.display = 'block';
-            if (speakerImg.style.display == 'block') {
-                speakerImg.classList.add('speakerAnimation')
-            }
-            monoBtn.setAttribute('data-active', 'true')
-            mobileBtn.setAttribute('data-active', 'false')
-            carBtn.setAttribute('data-active', 'false')
-            carImg.style.display = 'none';
-            mobileImg.style.display = 'none';
+            // speakerImg.style.display = 'block';
+            // if (speakerImg.style.display == 'block') {
+            //     speakerImg.classList.add('speakerAnimation')
+            // }
+            monoBtn.setAttribute('data-active', 'true');
+            mobileBtn.setAttribute('data-active', 'false');
+            carBtn.setAttribute('data-active', 'false');
+            monoBtn.style.backgroundColor = '#ff0000';
+            // carImg.style.display = 'none';
+            // mobileImg.style.display = 'none';
+            try {
+                mediaElement.disconnect(ctx.destination);
+            } catch (error) { };
+            mono.connect(ctx.destination);
+            carBtn.style.backgroundColor = '#d30202';
+            try {
+                mediaElement.disconnect(reverbNodeCar);
+                mediaElement.disconnect(highPass).disconnect(lowPass).disconnect(lowShelf).disconnect(mid).disconnect(highShelf).connect(ctx.destination);
+            } catch (error) { };
+            mobileBtn.style.backgroundColor = '#d30202';
+            try {
+                mediaElement.disconnect(highPass2).disconnect(lowPass2).disconnect(lowShelf2).disconnect(mid2).disconnect(highShelf2).disconnect(ctx.destination);
+            } catch (error) { };
         } else if (active === 'true') {
-            speakerImg.style.display = 'none';
-            monoBtn.setAttribute('data-active', 'false')
+            // speakerImg.style.display = 'none';
+            monoBtn.setAttribute('data-active', 'false');
+            monoBtn.style.backgroundColor = '#d30202';
+            mediaElement.connect(ctx.destination);
+            try {
+                mono.disconnect(ctx.destination);
+            } catch (error) { };
         }
     });
 
