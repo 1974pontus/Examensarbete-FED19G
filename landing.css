@@ -81,7 +81,7 @@ button:hover {
 }
 
 .road {
-  height: 320px;
+  height: 290px;
   width: 500%;
   display: block;
   background-image: url(./img/road.jpg);
@@ -89,7 +89,7 @@ button:hover {
   bottom: 0;
   left: 0;
   right: 0;
-  z-index: 1;
+  z-index: -2;
   -webkit-animation: road 5s linear infinite;
           animation: road 5s linear infinite;
 }
@@ -109,7 +109,7 @@ button:hover {
 }
 
 .tree {
-  height: 350px;
+  height: 300px;
   width: 500%;
   background-image: url(./img/gran.png);
   position: absolute;
@@ -117,7 +117,7 @@ button:hover {
   left: 0;
   right: 0;
   display: block;
-  z-index: 1;
+  z-index: -1;
   background-repeat: repeat-x;
   -webkit-animation: tree 20s linear infinite;
           animation: tree 20s linear infinite;
