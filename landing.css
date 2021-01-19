@@ -1,0 +1,224 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Helvetica, sans-serif;
+  font-size: 16px;
+  font-weight: lighter;
+  letter-spacing: 5px;
+  padding: 1.5rem;
+}
+
+h1 {
+  margin: 8rem 0rem;
+  font-weight: lighter;
+  letter-spacing: 5px;
+  padding: 1.5rem;
+}
+
+.landing {
+  height: 95vh;
+  width: 100%;
+  position: relative;
+  overflow-x: hidden;
+}
+
+i {
+  vertical-align: middle;
+}
+
+.onTop {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 90%;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.infoBox {
+  max-width: 375px;
+  height: 200px;
+}
+
+button {
+  color: white;
+  margin: 0.7rem;
+  border-style: none;
+  width: 50px;
+  height: 50px;
+  background: #ff0000;
+  border: 5px solid #1d1d1d;
+  border-radius: 50px;
+  outline: none;
+  -webkit-box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+          box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  font-size: 12px;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+}
+
+button:focus {
+  background-color: #ff0000;
+}
+
+button:hover {
+  -webkit-transform: scale(1.1);
+          transform: scale(1.1);
+}
+
+.login {
+  float: right;
+}
+
+.road {
+  height: 320px;
+  width: 500%;
+  display: block;
+  background-image: url(img/road.jpg);
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 1;
+  -webkit-animation: road 5s linear infinite;
+          animation: road 5s linear infinite;
+}
+
+@-webkit-keyframes road {
+  100% {
+    -webkit-transform: translateX(-3400px);
+            transform: translateX(-3400px);
+  }
+}
+
+@keyframes road {
+  100% {
+    -webkit-transform: translateX(-3400px);
+            transform: translateX(-3400px);
+  }
+}
+
+.tree {
+  height: 350px;
+  width: 500%;
+  background-image: url(img/gran.png);
+  position: absolute;
+  bottom: 170px;
+  left: 0;
+  right: 0;
+  display: block;
+  z-index: 1;
+  background-repeat: repeat-x;
+  -webkit-animation: tree 20s linear infinite;
+          animation: tree 20s linear infinite;
+}
+
+@-webkit-keyframes tree {
+  100% {
+    -webkit-transform: translateX(-1400px);
+            transform: translateX(-1400px);
+  }
+}
+
+@keyframes tree {
+  100% {
+    -webkit-transform: translateX(-1400px);
+            transform: translateX(-1400px);
+  }
+}
+
+.car {
+  width: 800px;
+  left: 49%;
+  bottom: 50px;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  position: absolute;
+  z-index: 2;
+}
+
+.car img {
+  width: 100%;
+  -webkit-animation: car 1s linear infinite;
+          animation: car 1s linear infinite;
+}
+
+@-webkit-keyframes car {
+  100% {
+    -webkit-transform: translateY(-1px);
+            transform: translateY(-1px);
+  }
+  50% {
+    -webkit-transform: translateY(1px);
+            transform: translateY(1px);
+  }
+  0% {
+    -webkit-transform: translateY(-1px);
+            transform: translateY(-1px);
+  }
+}
+
+@keyframes car {
+  100% {
+    -webkit-transform: translateY(-1px);
+            transform: translateY(-1px);
+  }
+  50% {
+    -webkit-transform: translateY(1px);
+            transform: translateY(1px);
+  }
+  0% {
+    -webkit-transform: translateY(-1px);
+            transform: translateY(-1px);
+  }
+}
+
+.wheel {
+  left: 50%;
+  bottom: 185px;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  position: absolute;
+  z-index: 2;
+}
+
+.wheel img {
+  width: 75px;
+  height: 75px;
+  -webkit-animation: wheel 1s linear infinite;
+          animation: wheel 1s linear infinite;
+}
+
+@-webkit-keyframes wheel {
+  100% {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
+
+@keyframes wheel {
+  100% {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
+
+.back-wheel {
+  left: -190px;
+  position: absolute;
+}
+
+.front-wheel {
+  left: 90px;
+  position: absolute;
+}
+/*# sourceMappingURL=landing.css.map */

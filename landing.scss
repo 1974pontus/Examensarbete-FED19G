@@ -1,0 +1,150 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Helvetica, sans-serif;
+  font-size: 16px;
+  font-weight: lighter;
+  letter-spacing: 5px;
+  padding: 1.5rem;
+}
+h1 {
+  margin: 8rem 0rem;
+  font-weight: lighter;
+  letter-spacing: 5px;
+  padding: 1.5rem;
+}
+
+.landing {
+  height: 95vh;
+  width: 100%;
+  position: relative;
+  overflow-x: hidden;
+}
+
+i {
+  vertical-align: middle;
+}
+
+.onTop {
+  display: flex;
+  align-items: center;
+  height: 90%;
+  flex-direction: column;
+}
+.infoBox {
+  max-width: 375px;
+  height: 200px;
+}
+button {
+  color: white;
+  margin: 0.7rem;
+  border-style: none;
+  width: 50px;
+  height: 50px;
+  background: #ff0000;
+  border: 5px solid #1d1d1d;
+  border-radius: 50px;
+  outline: none;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  font-size: 12px;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  transition: all 0.2s ease-in-out;
+}
+button:focus {
+  background-color: #ff0000;
+}
+button:hover {
+  transform: scale(1.1);
+}
+
+.login {
+  float: right;
+}
+
+.road {
+  height: 320px;
+  width: 500%;
+  display: block;
+  background-image: url(img/road.jpg);
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 1;
+  animation: road 5s linear infinite;
+}
+@keyframes road {
+  100% {
+    transform: translateX(-3400px);
+  }
+}
+
+.tree {
+  height: 350px;
+  width: 500%;
+  background-image: url(img/gran.png);
+  position: absolute;
+  bottom: 170px;
+  left: 0;
+  right: 0;
+  display: block;
+  z-index: 1;
+  background-repeat: repeat-x;
+  animation: tree 20s linear infinite;
+}
+@keyframes tree {
+  100% {
+    transform: translateX(-1400px);
+  }
+}
+.car {
+  width: 800px;
+  left: 49%;
+  bottom: 50px;
+  transform: translateX(-50%);
+  position: absolute;
+  z-index: 2;
+}
+.car img {
+  width: 100%;
+  animation: car 1s linear infinite;
+}
+@keyframes car {
+  100% {
+    transform: translateY(-1px);
+  }
+  50% {
+    transform: translateY(1px);
+  }
+  0% {
+    transform: translateY(-1px);
+  }
+}
+.wheel {
+  left: 50%;
+  bottom: 185px;
+  transform: translateX(-50%);
+  position: absolute;
+  z-index: 2;
+}
+.wheel img {
+  width: 75px;
+  height: 75px;
+  animation: wheel 1s linear infinite;
+}
+@keyframes wheel {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+.back-wheel {
+  left: -190px;
+  position: absolute;
+}
+.front-wheel {
+  left: 90px;
+  position: absolute;
+}
