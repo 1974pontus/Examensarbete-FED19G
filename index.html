@@ -1,97 +1,45 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Worst-case-mix-EQ</title>
+    <title>Worst Case Mix-EQ</title>
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
       integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA=="
       crossorigin="anonymous"
     />
-    <link rel="stylesheet" href="style.css" />
-    <script defer src="reverb.js"></script>
-    <script defer src="index.js"></script>
+    <link rel="stylesheet" type="text/css" href="landing.css" />
   </head>
   <body>
-    <div class="content">
-      <h1>Worst case mix-EQ</h1>
-      <div id="meters">
-        <div id="meterRight" class="meter">
-          <span class="indicator minus">-</span>
-          <span class="indicator plus">+</span>
-          <div class="needle"></div>
-
-          <div class="label">VU</div>
-          <div class="meterLine">
-            <span class="base"></span>
-            <div class="danger">
-              <span class="base"></span>
-            </div>
+    <div class="landing">
+      <div class="onTop">
+        <h1>Worst Case Mix-EQ</h1>
+        <div class="infoBox">
+          <p>
+            The Web Audio is not fully supported in safari and iphone ios.
+            Please use chrome or firefox.
+          </p>
+          <br />
+          <div class="login">
+            <span
+              >Join the fun!
+              <i
+                class="fas fa-long-arrow-alt-right"
+                style="font-size: 50px"
+              ></i></span
+            ><a href="eq.html"><button>EQ</button></a>
           </div>
-          <div class="shadow"></div>
-          <div class="needleBase"><span></span></div>
-        </div>
-
-        <div id="meterLeft" class="meter">
-          <span class="indicator minus">-</span>
-          <span class="indicator plus">+</span>
-          <div class="needle"></div>
-
-          <div class="label">VU</div>
-          <div class="meterLine">
-            <span class="base"></span>
-            <div class="danger">
-              <span class="base"></span>
-            </div>
-          </div>
-          <div class="shadow"></div>
-          <div class="needleBase"><span></span></div>
         </div>
       </div>
-      <h1 style="font-size: 18px; text-align: center">
-        Choose enviroment to <br />
-        test your mix:
-      </h1>
-      <div>
-        <input id="audio_file" type="file" accept="audio/*" />
+      <div class="road"></div>
+      <div class="tree"></div>
+      <div class="car">
+        <img src="img/rost.svg" />
       </div>
-      <div class="btnRow">
-        <button id="play">
-          <i class="fas fa-play"></i>
-        </button>
-        <button id="pause">
-          <i class="fas fa-pause"></i>
-        </button>
+      <div class="wheel">
+        <img src="img/hjul.png" class="back-wheel" />
+        <img src="img/hjul.png" class="front-wheel" />
       </div>
-      <div>
-        <audio id="audio_player"></audio>
-      </div>
-      <div class="setEq">
-        <div class="btnRow">
-          <button class="carBtn" data-active="false">
-            <!-- Car <br />
-            stereo -->
-            <i class="fas fa-car" style="font-size: 18px"></i>
-          </button>
-          <button class="mobileBtn" data-active="false">
-            <!-- Mobile <br />speaker -->
-            <i class="fas fa-mobile-alt" style="font-size: 18px"></i>
-          </button>
-          <button class="monoBtn" data-active="false">
-            <!-- Mono -->
-            <i class="far fa-circle" style="font-size: 18px"></i>
-          </button>
-        </div>
-        <div class="carousel">
-          <!-- <img id="carImg" src="./img/car.svg" alt="" />
-          <img class="mobileImg" src="./img/phone.svg" alt="" />
-          <img class="speakerImg" src="./img/speaker.svg" alt="" /> -->
-          <canvas id="canvas"></canvas>
-        </div>
-      </div>
-      <div class="mixer" style="display: none">bajs</div>
     </div>
   </body>
 </html>

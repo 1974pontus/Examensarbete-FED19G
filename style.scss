@@ -17,10 +17,12 @@
 }
 
 body {
-  @include flexer;
-  background-image: url(./img/bg4.png);
+  // @include flexer;
+  background-image: url(./img/background.png);
   background-repeat: no-repeat;
-  background-position: center top;
+  background-position: center;
+  background-position-y: calc(100% - 9rem);
+
   // background-size: 400px;
   font-family: Helvetica, sans-serif;
   font-size: 16px;
@@ -28,10 +30,11 @@ body {
 
 .content {
   display: flex;
-  padding-top: 1.5rem;
+  padding-top: 12rem;
   align-items: center;
   flex-direction: column;
   height: 100vh;
+  width: 100%;
 }
 
 h1 {
@@ -265,4 +268,21 @@ button:focus {
   border: solid 25px #3e535c;
   filter: blur(1px);
   // z-index: -1000;
+}
+
+@media screen and (max-width: 480px) {
+  body {
+    background-position-y: calc(100% - 2.5rem);
+  }
+  .content {
+    padding-top: 2rem;
+  }
+}
+@media screen and (max-width: 360px) {
+  body {
+    background-position-y: calc(100% - 0.1rem);
+  }
+  .content {
+    padding-top: 1rem;
+  }
 }
