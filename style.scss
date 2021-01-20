@@ -31,7 +31,7 @@ body {
   background-position: center;
   @include flexer;
   // background-position-y: calc(100% - 9rem);
-  padding-top: 9rem;
+  padding-top: 5rem;
   //align-items: center;
   flex-direction: column;
   height: 100vh;
@@ -168,13 +168,35 @@ input {
   box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 
+#return {
+  color: white;
+  margin: 0.7rem;
+  border-style: none;
+  width: 50px;
+  height: 50px;
+  background: #11cf00;
+  border: 5px solid #1d1d1d;
+  border-radius: 50px;
+  outline: none;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  font-size: 12px;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  transition: all 0.2s ease-in-out;
+}
+#return:focus {
+  background-color: #15ff00;
+}
+#return:hover {
+  transform: scale(1.1);
+}
+
 button {
   color: white;
   margin: 0.7rem;
   border-style: none;
   width: 50px;
   height: 50px;
-  background: #be0101;
+  background: #a30000;
   border: 5px solid #1d1d1d;
   outline: none;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
@@ -284,8 +306,23 @@ button:focus {
     margin: 5px;
   }
 }
-@media screen and (max-width: 360px) {
+@media screen and (max-width: 375px) {
   .content {
-    padding-top: 1rem;
+    padding-top: 0rem;
+  }
+  .carousel {
+    margin-top: 0rem;
+    height: 150px;
+    width: 150px;
+    border: #3e535c 15px solid;
+  }
+  #canvas {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    border: solid 15px #3e535c;
+  }
+  input {
+    margin-bottom: 0.5rem;
   }
 }

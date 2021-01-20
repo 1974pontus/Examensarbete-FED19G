@@ -1,11 +1,12 @@
 * {
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
 }
 
 body {
   font-family: Helvetica, sans-serif;
-  font-size: 16px;
+  // font-size: 16px;
   font-weight: lighter;
   letter-spacing: 5px;
   padding: 1.5rem;
@@ -36,7 +37,7 @@ i {
 }
 
 .infoBox {
-  max-width: 375px;
+  width: 450px;
   height: 200px;
 }
 button {
@@ -149,4 +150,16 @@ button:hover {
 .front-wheel {
   left: 90px;
   position: absolute;
+}
+@media screen and (max-width: 760px) {
+  .onTop {
+    justify-content: center;
+  }
+
+  .infoBox {
+    width: 320px;
+  }
+  body {
+    font-size: 24px;
+  }
 }

@@ -64,10 +64,14 @@
         <button id="pause">
           <i class="fas fa-pause"></i>
         </button>
+        <button onClick="window.location.reload();" id="return">
+          <i class="fas fa-sync-alt"></i>
+        </button>
       </div>
       <div>
         <audio id="audio_player"></audio>
       </div>
+
       <div class="setEq">
         <div class="btnRow">
           <button class="carBtn" data-active="false">
@@ -86,12 +90,13 @@
         </div>
         <div class="carousel">
           <!-- <img id="carImg" src="./img/car.svg" alt="" />
-          <img class="mobileImg" src="./img/phone.svg" alt="" />
-          <img class="speakerImg" src="./img/speaker.svg" alt="" /> -->
+            <img class="mobileImg" src="./img/phone.svg" alt="" />
+            <img class="speakerImg" src="./img/speaker.svg" alt="" /> -->
           <canvas id="canvas"></canvas>
         </div>
       </div>
-      <div class="mixer" style="display: none">bajs</div>
+
+      <!-- <div class="mixer" style="display: none">bajs</div> -->
     </div>
   </body>
 </html>
