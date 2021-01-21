@@ -229,12 +229,22 @@ button:hover {
     -webkit-box-pack: center;
         -ms-flex-pack: center;
             justify-content: center;
+    padding-bottom: 20rem;
   }
+  .infoBox {
+    width: 400px;
+  }
+  body {
+    font-size: 16px;
+  }
+}
+
+@media screen and (max-width: 420px) {
   .infoBox {
     width: 320px;
   }
   body {
-    font-size: 24px;
+    font-size: 11px;
   }
 }
 /*# sourceMappingURL=landing.css.map */

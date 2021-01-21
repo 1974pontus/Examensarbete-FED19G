@@ -154,12 +154,21 @@ button:hover {
 @media screen and (max-width: 760px) {
   .onTop {
     justify-content: center;
+    padding-bottom: 20rem;
   }
 
+  .infoBox {
+    width: 400px;
+  }
+  body {
+    font-size: 16px;
+  }
+}
+@media screen and (max-width: 420px) {
   .infoBox {
     width: 320px;
   }
   body {
-    font-size: 24px;
+    font-size: 11px;
   }
 }
