@@ -190,11 +190,8 @@ input {
   transition: all 0.2s ease-in-out;
 }
 
-#return:focus {
-  background-color: #15ff00;
-}
-
 #return:hover {
+  background: #6aff5c;
   -webkit-transform: scale(1.1);
           transform: scale(1.1);
 }
@@ -271,8 +268,6 @@ button:focus {
   height: 200px;
   border-radius: 50%;
   border: solid 25px #3e535c;
-  -webkit-filter: blur(1px);
-          filter: blur(1px);
 }
 
 @media screen and (max-width: 480px) {
