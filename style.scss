@@ -294,23 +294,21 @@ button:focus {
 
 @media screen and (max-width: 480px) {
   .content {
-    background-position-y: bottom;
-    padding-top: 0.5rem;
+    background-image: url(./img/fullBg.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    padding-top: 0rem;
+    justify-content: flex-start;
   }
   h1 {
     font-size: 1em;
-    padding: 1rem;
+    padding: 2rem;
   }
   .meter {
     margin: 5px;
   }
-}
-@media screen and (max-width: 375px) {
-  .content {
-    padding-top: 0rem;
-  }
   .carousel {
-    margin-top: 0rem;
+    // margin-top: 0rem;
     height: 150px;
     width: 150px;
     border: #3e535c 15px solid;
@@ -321,7 +319,9 @@ button:focus {
     border-radius: 50%;
     border: solid 15px #3e535c;
   }
-  input {
-    margin-bottom: 0.5rem;
-  }
+}
+@media screen and (max-width: 375px) {
+  // input {
+  //   margin-bottom: 0.5rem;
+  // }
 }
