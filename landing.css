@@ -7,16 +7,14 @@
 
 body {
   font-family: Helvetica, sans-serif;
-  font-weight: lighter;
   letter-spacing: 5px;
   padding: 1.5rem;
 }
 
 h1 {
   margin: 4rem 0rem;
-  font-weight: lighter;
   letter-spacing: 5px;
-  padding: 1.5rem;
+  padding: 1rem;
 }
 
 .landing {
@@ -303,6 +301,18 @@ button:hover {
   .front-wheel {
     left: 60px;
     position: absolute;
+  }
+  .onTop {
+    padding-bottom: 10rem;
+  }
+}
+
+@media screen and (max-width: 359px) {
+  .infoBox {
+    width: 300px;
+  }
+  body {
+    padding: 0;
   }
 }
 /*# sourceMappingURL=landing.css.map */
