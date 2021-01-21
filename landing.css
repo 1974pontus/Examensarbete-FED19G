@@ -239,12 +239,70 @@ button:hover {
   }
 }
 
-@media screen and (max-width: 420px) {
+@media screen and (max-width: 450px) {
   .infoBox {
     width: 320px;
   }
   body {
     font-size: 11px;
+  }
+  .road {
+    height: 130px;
+    -webkit-animation: road 3s linear infinite;
+            animation: road 3s linear infinite;
+  }
+  @-webkit-keyframes road {
+    100% {
+      -webkit-transform: translateX(-1200px);
+              transform: translateX(-1200px);
+    }
+  }
+  @keyframes road {
+    100% {
+      -webkit-transform: translateX(-1200px);
+              transform: translateX(-1200px);
+    }
+  }
+  .tree {
+    height: 300px;
+    width: 500%;
+    background-image: url(./img/gran.png);
+    position: absolute;
+    bottom: 35px;
+    left: 0;
+    right: 0;
+    display: block;
+    z-index: -1;
+    background-repeat: repeat-x;
+    -webkit-animation: tree 20s linear infinite;
+            animation: tree 20s linear infinite;
+  }
+  .car {
+    width: 450px;
+    left: 50%;
+    bottom: 30px;
+  }
+  .wheel {
+    left: 50%;
+    bottom: 110px;
+    -webkit-transform: translateX(-50%);
+            transform: translateX(-50%);
+    position: absolute;
+    z-index: 2;
+  }
+  .wheel img {
+    width: 43px;
+    height: 43px;
+    -webkit-animation: wheel 1s linear infinite;
+            animation: wheel 1s linear infinite;
+  }
+  .back-wheel {
+    left: -100px;
+    position: absolute;
+  }
+  .front-wheel {
+    left: 60px;
+    position: absolute;
   }
 }
 /*# sourceMappingURL=landing.css.map */
