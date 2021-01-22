@@ -7,9 +7,9 @@ const speakerImg = document.querySelector('.speakerImg');
 const canvas = document.getElementById("canvas");
 
 audio_file.onchange = function () {
-    var myAudio = document.getElementById('audio_player');
-    var play = document.getElementById('play');
-    var pause = document.getElementById('pause');
+    const myAudio = document.getElementById('audio_player');
+    const play = document.getElementById('play');
+    const pause = document.getElementById('pause');
 
     const AudioContext = window.AudioContext || window.webkitAudioContext;
 
@@ -34,12 +34,15 @@ audio_file.onchange = function () {
     function playAudio() {
         myAudio.play();
         console.log('play')
+        play.style.backgroundColor = '#ff0000';
+        pause.style.backgroundColor = '#a30000';
     }
 
     function pauseAudio() {
         myAudio.pause();
         console.log('pause')
-
+        pause.style.backgroundColor = '#ff0000';
+        play.style.backgroundColor = '#a30000';
     }
 
     ctx.resume();

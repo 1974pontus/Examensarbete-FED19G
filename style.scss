@@ -202,9 +202,9 @@ button {
   font-size: 12px;
   font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
 }
-button:focus {
-  background-color: #ff0000;
-}
+// button:focus {
+//   background-color: #ff0000;
+// }
 
 .setEq {
   @include flexer;

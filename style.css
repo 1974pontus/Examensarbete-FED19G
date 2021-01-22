@@ -211,10 +211,6 @@ button {
   font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
 }
 
-button:focus {
-  background-color: #ff0000;
-}
-
 .setEq {
   display: -webkit-box;
   display: -ms-flexbox;
