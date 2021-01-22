@@ -24,6 +24,10 @@ body {
   font-size: 16px;
 }
 
+#preload {
+  display: none;
+}
+
 .content {
   //: flex;
   background-image: url(./img/testBg2.svg);
