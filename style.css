@@ -11,7 +11,7 @@ body {
 }
 
 .content {
-  background-image: url(./img/background.png);
+  background-image: url(./img/testBg.png);
   background-repeat: no-repeat;
   background-position: center;
   display: -webkit-box;
