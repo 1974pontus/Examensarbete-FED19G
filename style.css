@@ -299,4 +299,10 @@ button {
     border: solid 15px #3e535c;
   }
 }
+
+@media screen and (max-width: 320px) {
+  h1 {
+    padding: 1rem;
+  }
+}
 /*# sourceMappingURL=style.css.map */

@@ -175,6 +175,9 @@ button:hover {
   body {
     font-size: 11px;
   }
+  h1 {
+    margin: 2rem 0;
+  }
   .road {
     height: 130px;
     animation: road 3s linear infinite;
@@ -227,11 +230,14 @@ button:hover {
   }
 }
 
-@media screen and (max-width: 359px) {
+@media screen and (max-width: 360px) {
   .infoBox {
     width: 300px;
   }
   body {
     padding: 0;
+  }
+  h1 {
+    margin: 0;
   }
 }
