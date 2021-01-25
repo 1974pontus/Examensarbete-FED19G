@@ -59,10 +59,9 @@ button {
   font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
   transition: all 0.2s ease-in-out;
 }
-button:focus {
-  background-color: #ff0000;
-}
+
 button:hover {
+  background-color: #a30000;
   transform: scale(1.1);
 }
 
