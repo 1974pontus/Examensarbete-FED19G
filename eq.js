@@ -7,6 +7,7 @@ const speakerImg = document.querySelector('.speakerImg');
 const canvas = document.getElementById("canvas");
 
 const myAudio = document.getElementById('audio_player');
+
 const play = document.getElementById('play');
 const pause = document.getElementById('pause');
 
@@ -66,18 +67,18 @@ const reverbNodeCar = ctx.createReverbFromUrl(reverbUrlCar, function () {
 const lowShelf = ctx.createBiquadFilter();
 lowShelf.type = 'lowshelf';
 lowShelf.frequency.value = 320;
-lowShelf.gain.value = 10;
+lowShelf.gain.value = 8;
 //MID
 const mid = ctx.createBiquadFilter();
 mid.type = "peaking";
 mid.frequency.value = 1000;
 mid.Q.value = 0.5;
-mid.gain.value = 5.0;
+mid.gain.value = 3.0;
 //HIGHSHELF
 const highShelf = ctx.createBiquadFilter();
 highShelf.type = "highshelf";
 highShelf.frequency.value = 3200;
-highShelf.gain.value = 5.0;
+highShelf.gain.value = 3.0;
 //LOWPASS
 const lowPass = ctx.createBiquadFilter();
 lowPass.type = "lowpass";
@@ -124,7 +125,7 @@ carBtn.addEventListener('click', () => {
 
 ////////MOBILE SETUP////////
 
-const reverbUrlMobile = "./IR/test3.wav";
+const reverbUrlMobile = "./IR/phone.wav";
 const reverbNodeMobile = ctx.createReverbFromUrl(reverbUrlMobile, function () {
     reverbNodeMobile.connect(ctx.destination);
 });
@@ -161,7 +162,7 @@ highPass2.Q.value = 2.2
 
 //GAIN COMPENSATION
 const eq2Level = ctx.createGain();
-eq2Level.gain.value = 10;
+eq2Level.gain.value = 1;
 
 mobileBtn.addEventListener('click', () => {
     const active = mobileBtn.getAttribute('data-active');
