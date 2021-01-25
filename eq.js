@@ -23,6 +23,21 @@ audio_file.onchange = function () {
     let files = this.files;
     let file = URL.createObjectURL(files[0]);
     audio_player.src = file;
+    function playAudio() {
+        myAudio.play();
+        console.log('play')
+        play.style.backgroundColor = '#ff0000';
+        pause.style.backgroundColor = '#a30000';
+    }
+
+    function pauseAudio() {
+        myAudio.pause();
+        console.log('pause')
+        pause.style.backgroundColor = '#ff0000';
+        play.style.backgroundColor = '#a30000';
+    }
+    play.onclick = playAudio;
+    pause.onclick = pauseAudio;
 };
 
 mediaElement.connect(ctx.destination);
@@ -31,22 +46,7 @@ mediaElement.connect(ctx.destination);
 reverbjs.extend(ctx);
 
 // associate functions with the 'onclick' events
-play.onclick = playAudio;
-pause.onclick = pauseAudio;
 
-function playAudio() {
-    myAudio.play();
-    console.log('play')
-    play.style.backgroundColor = '#ff0000';
-    pause.style.backgroundColor = '#a30000';
-}
-
-function pauseAudio() {
-    myAudio.pause();
-    console.log('pause')
-    pause.style.backgroundColor = '#ff0000';
-    play.style.backgroundColor = '#a30000';
-}
 
 ctx.resume();
 if (ctx.state === 'suspended') {
@@ -56,7 +56,7 @@ if (ctx.state === 'suspended') {
 ////////CAR STEREO SETUP////////
 
 //Setup and connect impulse response
-const reverbUrlCar = "./IR/IRCar.wav";
+const reverbUrlCar = "./IR/carV2.wav";
 const reverbNodeCar = ctx.createReverbFromUrl(reverbUrlCar, function () {
     reverbNodeCar.connect(ctx.destination);
 });
@@ -125,7 +125,7 @@ carBtn.addEventListener('click', () => {
 
 ////////MOBILE SETUP////////
 
-const reverbUrlMobile = "./IR/phone.wav";
+const reverbUrlMobile = "./IR/phoneV2.wav";
 const reverbNodeMobile = ctx.createReverbFromUrl(reverbUrlMobile, function () {
     reverbNodeMobile.connect(ctx.destination);
 });
@@ -365,7 +365,6 @@ function renderFrame() {
 
 
 
-        // analCtx.fillStyle = `rgb(${r},${g},${b})`;
         analCtx.fillStyle = "#08FF08";
         analCtx.fillRect(x, (HEIGHT - barHeight), barWidth, barHeight);
 
