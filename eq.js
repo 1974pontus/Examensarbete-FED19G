@@ -25,6 +25,7 @@ audio_file.onchange = function () {
     audio_player.src = file;
     function playAudio() {
         myAudio.play();
+        myAudio.volume = 0.2;
         console.log('play')
         play.style.backgroundColor = '#ff0000';
         pause.style.backgroundColor = '#a30000';
@@ -66,27 +67,31 @@ const reverbNodeCar = ctx.createReverbFromUrl(reverbUrlCar, function () {
 //LOWSHELF
 const lowShelf = ctx.createBiquadFilter();
 lowShelf.type = 'lowshelf';
-lowShelf.frequency.value = 320;
-lowShelf.gain.value = 8;
+lowShelf.frequency.value = 100;
+lowShelf.gain.value = 0;
 //MID
 const mid = ctx.createBiquadFilter();
 mid.type = "peaking";
 mid.frequency.value = 1000;
 mid.Q.value = 0.5;
-mid.gain.value = 3.0;
+mid.gain.value = 0;
 //HIGHSHELF
 const highShelf = ctx.createBiquadFilter();
 highShelf.type = "highshelf";
-highShelf.frequency.value = 3200;
-highShelf.gain.value = 3.0;
+highShelf.frequency.value = 6000;
+highShelf.Q.value = 1;
+highShelf.gain.value = 1;
 //LOWPASS
 const lowPass = ctx.createBiquadFilter();
 lowPass.type = "lowpass";
-lowPass.frequency.value = 3500;
+lowPass.frequency.value = 7470;
+lowPass.Q.value = 6;
 //HIGHPASS
 const highPass = ctx.createBiquadFilter();
 highPass.type = "highpass";
-highPass.frequency.value = 2030;
+highPass.frequency.value = 65;
+highPass.Q.value = 2;
+
 
 //Car stereo button
 carBtn.addEventListener('click', () => {
@@ -101,7 +106,7 @@ carBtn.addEventListener('click', () => {
         } catch (error) { };
         console.log('EQ1 ADDED');
         mediaElement.connect(reverbNodeCar);
-        mediaElement.connect(highPass).connect(lowPass).connect(lowShelf).connect(mid).connect(highShelf).connect(ctx.destination);
+        mediaElement.connect(reverbNodeCar).connect(highPass).connect(lowPass).connect(lowShelf).connect(mid).connect(highShelf).connect(ctx.destination);
         mobileBtn.style.backgroundColor = '#a30000';
         try {
             mediaElement.disconnect(reverbNodeMobile)
