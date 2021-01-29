@@ -11,6 +11,7 @@ const myAudio = document.getElementById('audio_player');
 const play = document.getElementById('play');
 const pause = document.getElementById('pause');
 
+//Create the Audio context
 const AudioContext = window.AudioContext || window.webkitAudioContext;
 
 const audioElement = audio_player;
@@ -106,7 +107,7 @@ carBtn.addEventListener('click', () => {
         } catch (error) { };
         console.log('EQ1 ADDED');
         mediaElement.connect(reverbNodeCar);
-        mediaElement.connect(reverbNodeCar).connect(highPass).connect(lowPass).connect(lowShelf).connect(mid).connect(highShelf).connect(ctx.destination);
+        mediaElement.connect(highPass).connect(lowPass).connect(lowShelf).connect(mid).connect(highShelf).connect(ctx.destination);
         mobileBtn.style.backgroundColor = '#a30000';
         try {
             mediaElement.disconnect(reverbNodeMobile)
@@ -138,29 +139,29 @@ const reverbNodeMobile = ctx.createReverbFromUrl(reverbUrlMobile, function () {
 //Create filters for mobile phone speakers
 
 //LOWSHELF
-let lowShelf2 = ctx.createBiquadFilter();
+const lowShelf2 = ctx.createBiquadFilter();
 lowShelf2.type = 'lowshelf';
 lowShelf2.frequency.value = 420;
 lowShelf2.gain.value = 20;
 //MID
-let mid2 = ctx.createBiquadFilter();
+const mid2 = ctx.createBiquadFilter();
 mid2.type = "peaking";
 mid2.frequency.value = 1200;
 mid2.Q.value = 3.6;
 mid2.gain.value = -1.5;
 //HIGHSHELF
-let highShelf2 = ctx.createBiquadFilter();
+const highShelf2 = ctx.createBiquadFilter();
 highShelf2.type = "highshelf";
 highShelf2.frequency.value = 2200;
 highShelf2.gain.value = 3.0;
 //LOWPASS
-let lowPass2 = ctx.createBiquadFilter();
+const lowPass2 = ctx.createBiquadFilter();
 lowPass2.type = "lowpass";
 lowPass2.frequency.value = 4250;
 lowPass2.Q.value = 2.2
 
 //HIGHPASS
-let highPass2 = ctx.createBiquadFilter();
+const highPass2 = ctx.createBiquadFilter();
 highPass2.type = "highpass";
 highPass2.frequency.value = 910;
 highPass2.Q.value = 2.2

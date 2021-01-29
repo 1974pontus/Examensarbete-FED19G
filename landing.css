@@ -138,9 +138,9 @@ button:hover {
 }
 
 .car {
-  width: 800px;
+  width: 700px;
   left: 49%;
-  bottom: 50px;
+  bottom: 65px;
   -webkit-transform: translateX(-50%);
           transform: translateX(-50%);
   position: absolute;
@@ -193,8 +193,8 @@ button:hover {
 }
 
 .wheel img {
-  width: 75px;
-  height: 75px;
+  width: 65px;
+  height: 65px;
   -webkit-animation: wheel 1s linear infinite;
           animation: wheel 1s linear infinite;
 }
@@ -214,12 +214,12 @@ button:hover {
 }
 
 .back-wheel {
-  left: -190px;
+  left: -170px;
   position: absolute;
 }
 
 .front-wheel {
-  left: 90px;
+  left: 80px;
   position: absolute;
 }
 
